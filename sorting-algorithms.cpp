@@ -88,6 +88,30 @@ void mergeSort(int array[], int from, int to){
     }
 }
 
+int partition(int array[], int from, int to){
+    int pivot = array[high];
+    int wall = from;
+    for(i = from; i < to; i++){
+        if(pivot < array[i]){
+            int temp = array[wall];
+            array[wall] = input[i];
+            input[i] = temp;
+            wall++;
+        }
+    }
+    input[to] = input[wall];
+    input[wall] = pivot;
+
+    return wall;
+}
+
+void quickSort(int array[], int from, int to){
+    int index = partition(array, from, to);
+    quickSort(array, from, partition-1);
+    quickSort(array,partition+1, to);
+
+}
+
 int main(){
     cout << "Selection sort"<<endl;
     int size = 10;
